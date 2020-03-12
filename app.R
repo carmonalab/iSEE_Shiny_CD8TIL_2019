@@ -4,6 +4,7 @@
 
 # Environment -------------------------------------------------------------
 
+renv::restore()
 
 library(rsconnect)
 library(shiny)
