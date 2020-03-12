@@ -37,13 +37,13 @@ redDimPlotArgs[['SelectByPlot']] <- c("Feature assay plot 1", "---", "---", "---
 redDimPlotArgs[['SelectEffect']] <- c("Transparent", "Transparent", "Transparent", "Transparent", "Transparent")
 redDimPlotArgs[['SelectAlpha']] <- c(0.1, 0.1, 0.1, 0.1, 0.1)
 redDimPlotArgs[['SelectColor']] <- c("#FF0000", "#FF0000", "#FF0000", "red", "red")
-redDimPlotArgs[['ShapeBy']] <- c("Column data", "None", "None", "None", "None")
-redDimPlotArgs[['ShapeByColData']] <- c("cluster.lab", "Sample", "Sample", "Sample", "Sample")
+#redDimPlotArgs[['ShapeBy']] <- c("Column data", "None", "None", "None", "None")
+#redDimPlotArgs[['ShapeByColData']] <- c("cluster.lab", "Sample", "Sample", "Sample", "Sample")
 
 
 redDimPlotArgs[['VisualChoices']] <- "Color"
-redDimPlotArgs[['PointSize']] <- c(4, 1, 1, 1, 1)
-redDimPlotArgs[['PointAlpha']] <- c(0.9, 1, 1, 1, 1)
+redDimPlotArgs[['PointSize']] <- c(1, 1, 1, 1, 1)
+redDimPlotArgs[['PointAlpha']] <- c(0.9, 0.9, 1, 1, 1)
 redDimPlotArgs[['Downsample']] <-  c(TRUE, TRUE, TRUE, TRUE, TRUE)
 redDimPlotArgs[['SampleRes']] <- c(200, 200, 200, 200, 200)
 redDimPlotArgs[['FontSize']] <- c(1, 1, 1, 1, 1)
@@ -157,13 +157,17 @@ heatMapPlotArgs[['SelectColor']] <- c("red", "red", "red", "red", "red")
 # Initial panel settings
 ################################################################################
 
+
 initialPanels <- DataFrame(
-  Name=c("Row statistics table 1", "Feature assay plot 1", "Reduced dimension plot 1"
+  Name=c("Row statistics table 1", "Reduced dimension plot 2", "Feature assay plot 1",  "Reduced dimension plot 1"
   ),
-  Width=c(4L, 4L, 8L),
-  Height=c(500L, 500L, 800L)
+  Width=c(7L, 4L, 7L, 4L),
+  Height=c(500L, 500L, 500L, 500L)
 )
+
+
 #  #, "Reduced dimension plot 2", "Heat map 1"
+
 
 
 ################################################################################
@@ -174,8 +178,18 @@ initialPanels <- DataFrame(
 cluster_colors <- function(n){
   c("#F8766D","#A58AFF","#00B6EB","#53B400")
 }
+
+colorRampBlue <- colorRampPalette(c("gray", "blue"))
+
 ecm <- ExperimentColorMap(
-  global_discrete =  cluster_colors
+  
+  assays = list(
+    logcounts = colorRampBlue,
+    counts = colorRampBlue
+  ),
+  colData=list(
+    cluster.lab=cluster_colors
+  )
 )
 
 
