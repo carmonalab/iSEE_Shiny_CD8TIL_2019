@@ -4,9 +4,9 @@
 
 # Environment -------------------------------------------------------------
 
-renv::restore()
+#renv::restore()
 
-library(rsconnect)
+#library(rsconnect)
 library(shiny)
 library(ggplot2)
 #library(plotly)
