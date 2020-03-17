@@ -2,7 +2,7 @@
 
 iSEE Shinyapp to explore the murine CD8 TIL data described in [Carmona SJ et al 2020](http://doi.org/10.1080/2162402X.2020.1737369)
 
-An instance of the web app is online at http://b16.TILAtlas.org (running on [Docker](https://github.com/carmonalab/shiny))
+An instance of the web app is online at http://b16.TILAtlas.org (running on [Shiny Server on Docker](https://github.com/carmonalab/shiny))
 
 To run locally:
 
